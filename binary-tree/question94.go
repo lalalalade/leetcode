@@ -51,6 +51,7 @@ type Pair struct {
 	int
 }
 
+// inorderTraversal2 二叉树中序遍历 颜色标记法
 func inorderTraversal2(root *TreeNode) []int {
 	res := make([]int, 0)
 	if root == nil {
