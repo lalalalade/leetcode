@@ -1,6 +1,6 @@
 package binary_tree
 
-// sumNumbers 求根节点到叶节点数字之和
+// sumNumbers 求根节点到叶节点数字之和 自顶向下DFS
 func sumNumbers(root *TreeNode) int {
 	res := 0
 	var dfs func(*TreeNode, int)

@@ -1,6 +1,6 @@
 package binary_tree
 
-// rightSideView 二叉树的右视图
+// rightSideView 二叉树的右视图 自顶向下DFS
 func rightSideView(root *TreeNode) []int {
 	res := []int{}
 	var dfs func(*TreeNode, int)
