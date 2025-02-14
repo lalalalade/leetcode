@@ -28,6 +28,7 @@ func preorderTraversal1(root *TreeNode) []int {
 		cur := stack[len(stack)-1]
 		stack = stack[:len(stack)-1]
 		res = append(res, cur.Val)
+		// 先压右再压左
 		if cur.Right != nil {
 			stack = append(stack, cur.Right)
 		}

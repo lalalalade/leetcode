@@ -25,9 +25,9 @@ func inorderTraversal(root *TreeNode) []int {
 // inorderTraversal1 二叉树中序遍历 迭代
 func inorderTraversal1(root *TreeNode) []int {
 	res := make([]int, 0)
-	stack := []*TreeNode{}
+	stack := make([]*TreeNode, 0)
 	for root != nil || len(stack) > 0 {
-		// 向左走到底
+		// 左边界进栈
 		for root != nil {
 			stack = append(stack, root)
 			root = root.Left
@@ -36,6 +36,7 @@ func inorderTraversal1(root *TreeNode) []int {
 		root = stack[len(stack)-1]
 		stack = stack[:len(stack)-1]
 		res = append(res, root.Val)
+		// 走到右子树 再重复上面左边界进栈的步骤
 		root = root.Right
 	}
 	return res
