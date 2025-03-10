@@ -4,6 +4,7 @@ package linked_list
 func mergeTwoLists1(l1 *ListNode, l2 *ListNode) *ListNode {
 	dummy := &ListNode{}
 	cur := dummy
+	// 直到其中一个链表走到最后就停止循环
 	for l1 != nil && l2 != nil {
 		if l1.Val < l2.Val {
 			cur.Next = &ListNode{Val: l1.Val, Next: nil}
@@ -24,6 +25,7 @@ func mergeTwoLists1(l1 *ListNode, l2 *ListNode) *ListNode {
 
 // mergeTwoLists2 合并两个有序链表 递归
 func mergeTwoLists2(l1 *ListNode, l2 *ListNode) *ListNode {
+	// 递归出口
 	if l1 == nil {
 		return l2
 	}

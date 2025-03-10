@@ -7,6 +7,7 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 	for ; n > 0; n-- {
 		q = q.Next
 	}
+	// q走到最后一个结点时，p就是要删除结点的前一个结点
 	for q.Next != nil {
 		p = p.Next
 		q = q.Next

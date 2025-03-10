@@ -1,5 +1,6 @@
 package code_top
 
+// lengthOfLongestSubstring 最长公共子串
 func lengthOfLongestSubstring(s string) int {
 	cnt := [128]int{}
 	left := 0

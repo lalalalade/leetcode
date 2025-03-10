@@ -5,10 +5,12 @@ type ListNode struct {
 	Next *ListNode
 }
 
+// addTwoNumbers 两数相加
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	dummy := &ListNode{}
 	cur := dummy
 	carry := 0
+	// 三者满足其一则都要继续循环
 	for l1 != nil || l2 != nil || carry != 0 {
 		if l1 != nil {
 			carry += l1.Val

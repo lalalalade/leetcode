@@ -8,6 +8,7 @@ func (h hp) Len() int {
 	return len(h)
 }
 
+// Less 最小堆
 func (h hp) Less(i, j int) bool {
 	return h[i].Val < h[j].Val
 }
@@ -28,6 +29,7 @@ func (h *hp) Pop() interface{} {
 // mergeKLists1 合并K个升序链表
 func mergeKLists1(lists []*ListNode) *ListNode {
 	h := hp{}
+	// 建堆
 	for _, list := range lists {
 		if list != nil {
 			h.Push(list)
@@ -38,6 +40,7 @@ func mergeKLists1(lists []*ListNode) *ListNode {
 	dummy := &ListNode{}
 	cur := dummy
 	for len(h) > 0 {
+		// 最小元素出堆
 		node := heap.Pop(&h).(*ListNode)
 		if node.Next != nil {
 			heap.Push(&h, node.Next)
@@ -48,6 +51,7 @@ func mergeKLists1(lists []*ListNode) *ListNode {
 	return dummy.Next
 }
 
+// mergeTwoLists 合并两个有序链表 迭代
 func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 	dummy := &ListNode{}
 	cur := dummy
@@ -69,6 +73,7 @@ func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 	return dummy.Next
 }
 
+// mergeKLists2 合并k个升序链表 递归
 func mergeKLists2(lists []*ListNode) *ListNode {
 	m := len(lists)
 

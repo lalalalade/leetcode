@@ -19,11 +19,11 @@ func reverseKGroup(head *ListNode, k int) *ListNode {
 			pre = cur
 			cur = nxt
 		}
-		// 获取翻转组翻转后的最后一个结点
+		// 获取翻转组翻转后的尾结点（翻转前的首节点）
 		nxt := p0.Next
-		// cur 是下一组的head
+		// cur 是下一组的第一个结点
 		nxt.Next = cur
-		// pre 是翻转组的newHead
+		// pre 是翻转组翻转后的首结点（翻转前的尾结点）
 		p0.Next = pre
 		p0 = nxt
 	}

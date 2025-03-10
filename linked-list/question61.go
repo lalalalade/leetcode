@@ -18,6 +18,7 @@ func rotateRight(head *ListNode, k int) *ListNode {
 	for ; k > 0; k-- {
 		fast = fast.Next
 	}
+	// 找到倒数第(k%count) + 1个结点的位置
 	for fast.Next != nil {
 		fast = fast.Next
 		slow = slow.Next
