@@ -2,6 +2,7 @@ package binary_tree
 
 import "math"
 
+// maxPathSum 二叉树中的最大路径和
 func maxPathSum(root *TreeNode) int {
 	res := math.MinInt32
 	var dfs func(*TreeNode) int

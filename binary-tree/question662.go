@@ -1,5 +1,6 @@
 package binary_tree
 
+// widthOfBinaryTree 二叉树最大宽度
 func widthOfBinaryTree(root *TreeNode) int {
 	res := 0
 	if root == nil {

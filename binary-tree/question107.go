@@ -2,6 +2,7 @@ package binary_tree
 
 import "slices"
 
+// levelOrderBottom 二叉树的层序遍历 II
 func levelOrderBottom(root *TreeNode) [][]int {
 	res := make([][]int, 0)
 	if root == nil {
