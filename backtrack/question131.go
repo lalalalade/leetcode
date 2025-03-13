@@ -4,9 +4,10 @@ package backtrack
 func partition(s string) [][]string {
 	res := make([][]string, 0)
 	n := len(s)
-	path := []string{}
+	path := make([]string, 0)
 
 	var dfs func(int)
+	// i代表枚举起点
 	dfs = func(i int) {
 		if i == n {
 			// 完成了一次分割 收集结果

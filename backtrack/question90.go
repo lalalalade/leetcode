@@ -1,15 +1,21 @@
 package backtrack
 
-// subsets 子集
-func subsets(nums []int) [][]int {
+import "slices"
+
+// subsetsWithDup 子集 II
+func subsetsWithDup(nums []int) [][]int {
+	slices.Sort(nums)
+	res := make([][]int, 0)
 	n := len(nums)
-	res := make([][]int, 0, 1<<n)
-	path := make([]int, 0, n)
+	path := make([]int, 0)
 	var dfs func(int)
 	dfs = func(i int) {
-		// 收集所有节点
 		res = append(res, append([]int{}, path...))
 		for j := i; j < n; j++ {
+			// 去重
+			if j > i && nums[j] == nums[j-1] {
+				continue
+			}
 			path = append(path, nums[j])
 			dfs(j + 1)
 			path = path[:len(path)-1]
