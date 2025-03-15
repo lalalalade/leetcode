@@ -1,5 +1,6 @@
 package backtrack
 
+// permute 全排列
 func permute(nums []int) [][]int {
 	res := make([][]int, 0)
 	n := len(nums)
