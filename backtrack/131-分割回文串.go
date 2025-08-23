@@ -27,6 +27,8 @@ func partition(s string) [][]string {
 	return res
 }
 
+// 回溯三问：
+
 func isPalindrome(s string, left, right int) bool {
 	for left < right {
 		if s[left] != s[right] {
