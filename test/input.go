@@ -1,4 +1,4 @@
-package test
+package main
 
 import (
 	"bufio"
@@ -35,32 +35,41 @@ func main() {
 		}
 		return nums
 	}
-
-	n := 0
-	res := int64(0)
-	fmt.Scan(&n)
-	nums := readInts()
-	i, j := int64(0), int64(n-1)
-	for i < j {
-		res = max(res, min(nums[i], nums[j])*(j-i))
-		if nums[i] <= nums[j] {
-			i++
-		} else {
-			j--
+	T := readInts()[0]
+	for T > 0 {
+		l := readInts()
+		n, x, y := l[0], l[1], l[2]
+		g := make([][]int, n+1)
+		for i := 1; i <= int(n); i++ {
+			g[i] = make([]int, 0)
 		}
+		for i := 0; i < int(n)-1; i++ {
+			scanner.Scan()
+			var u, v int
+			fmt.Sscanf(scanner.Text(), "%d %d", &u, &v)
+			g[u] = append(g[u], v)
+			g[v] = append(g[v], u)
+		}
+		if n == 0 {
+			fmt.Println(0)
+			continue
+		}
+		dp := make([]int64, n+1)
+		visited := make([]bool, n+1)
+		var dfs func(int)
+		dfs = func(u int) {
+			visited[u] = true
+			sum := int64(0)
+			for _, v := range g[u] {
+				if !visited[v] {
+					dfs(v)
+					sum += dp[v]
+				}
+			}
+			dp[u] = max(y, x+sum)
+		}
+		dfs(1)
+		fmt.Println(dp[1])
+		T--
 	}
-}
-
-func max(i, j int64) int64 {
-	if i > j {
-		return i
-	}
-	return j
-}
-
-func min(i, j int64) int64 {
-	if i < j {
-		return i
-	}
-	return j
 }
